@@ -4,25 +4,7 @@ import Button from "./Button";
 
 
 function Navbar(props) {
-    const Logo = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
-        {/* <!-- Main Company Name - Centered --> */}
-        <text x="400" y="160"
-            font-family="Arial"
-            font-size="135"
-            font-weight="900"
-            fill="#b7410e"
-            text-anchor="middle"
-            direction="rtl">شركة السهيل</text>
-
-        {/* <!-- Services Text - Centered --> */}
-        <text x="400" y="260"
-            font-family="Arial"
-            font-size="70"
-            font-weight="900"
-            fill="#000000"
-            text-anchor="middle"
-            direction="rtl">للمقاولات و اعمال الصيانة</text>
-    </svg>
+    
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-body-tertiary" dir="rtl" style={{paddingBottom:"0px"}}>
@@ -35,7 +17,7 @@ function Navbar(props) {
                             paddingBottom: "0px"
                         }}
                     >
-                        {Logo}
+                        
 
                     </Link>
 
