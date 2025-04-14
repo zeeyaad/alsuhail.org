@@ -1,40 +1,187 @@
-.App {
-  text-align: center;
+/* Body */
+body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background-color: #f5f9fc;
+    font-family: "Dosis", sans-serif;
+    font-size: 14px;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.paragraph-small {
+    font-size: 14px;
+    line-height: 1.6;
+    font-family: "Dosis",sans-serif
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Body */
+
+.input-box {
+    position: relative;
+    padding: 0 0 30px 0;
+}
+.input-box input, .input-box textarea, .input-box select {
+    font-size: 15px;
+    padding: 20px 25px;
+    width: 100%;
+    color: #333;
+    background-color: #FFF;
+    border-radius: 4px;
+    border: 2px solid #e4e0e0;
+    transition: border-color;
+}
+.input-box.has-content label {
+    display: inline-block;
+    top: 0;
+    width: auto;
+    font-size: 14px;
+    color: #32C1CE
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* login Form */
+
+.layer-stretch {
+    position: relative;
+    max-width: 1170px;
+    padding: 0 15px;
+    margin: 0 auto;
+    overflow: hidden
 }
 
-.App-link {
-  color: #61dafb;
+.layer-wrapper {
+    position: relative;
+    width: 100%;
+    padding: 50px 0 50px 0;
+    margin: 0
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.form-container {
+    max-width: 540px;
+    padding: 40px;
+    margin: 0 auto;
+    background: #FFF;
+    border-radius: 10px
+}
+
+.text-center {
+    text-align: center !important
+}
+
+.login-condition {
+    font-size: 12px;
+    color: #AAA;
+    padding: 0 30px
+}
+
+.login-link {
+    padding: 20px 20px 20px 20px;
+    overflow: hidden;
+    background: #f2f2f2;
+    margin: 20px auto 0 auto
+}
+
+.login-link span {
+    display: block;
+    text-align: center
+}
+
+.login-link a {
+    display: inline-block;
+    font-size: 14px;
+    color: #32C1CE;
+    letter-spacing: .5px;
+    margin: 0 0 0 5px;
+    cursor: pointer
 }
 
 
+.forgot-pass {
+    position: absolute;
+    bottom: 8px;
+    right: 0;
+    font-size: 14px;
+    color: #32C1CE;
+    cursor: pointer
+}
+
+.form-container .paragraph-small {
+    text-align: center
+}
+
+.form-container label em {
+    color: #cc5151
+}
+
+.form-full-container {
+    padding: 40px;
+    background: #FFF;
+    border-radius: 10px
+}
+
+/* login Form */
+
+
+/* Input Field */
+.floating-label-input {
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.form-input {
+    width: 100%;
+    padding: 14px 12px 6px;
+    border: 2px solid #32C1CE;
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: transparent;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+    border-color: #0099cc;
+}
+
+.floating-label-input label {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-size: 14px;
+    color: #32C1CE;
+    background-color: white;
+    padding: 0 4px;
+    transition: 0.2s ease;
+    pointer-events: none;
+}
+
+.form-input:focus + label,
+.form-input:not(:placeholder-shown) + label {
+    top: -8px;
+    left: 10px;
+    font-size: 12px;
+    color: #0099cc;
+}
+
+.required-star {
+    color: red;
+    font-size: 14px;
+}
+
+/* Input Field */
+
+/* Forget Password */
+.forgot-pass {
+    color: #32C1CE;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.password-wrapper {
+    margin-bottom: 15px;
+}
+
+/* Forget Password */

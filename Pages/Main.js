@@ -1,10 +1,7 @@
 import React from "react";
 import Navbar from "../Components/Navbar";
-import Jumbotron from "../Components/Jumbotron";
-import Hero from "../Components/Hero";
-import Feature from "../Components/Features";
-import Footer from "../Components/Footer";
-import FooterOFFooter from "../Components/FooterOf Footer";
+import NavbarFooter from "../Components/NavbarFooter";
+
 
 
 // import { TbBackground } from "react-icons/tb";
@@ -12,12 +9,22 @@ import FooterOFFooter from "../Components/FooterOf Footer";
 function Main() {
     // const BgPath = "../Assets/image.png";
     return <>
-        <Navbar Home={"الرئيسية"} Mentinance={"خدمات الصيانة"} Cleaning={"خدمات التنظيف"} Contractors={"خدمات المقاولات"} />
-        <Jumbotron />
-        <Hero />
-        <Feature />
-        <Footer />
-        <FooterOFFooter />
+        <header style={{
+            margin: 0,
+            padding: 0,
+            fontFamily: 'sans-serif',
+            background: 'url("./Assets/Images/image.png") no-repeat center center/cover'
+        }}>
+            <Navbar />
+            <NavbarFooter style={{
+                backgroundColor: "rgba(0, 51, 64, 0.85)",/* Dark teal with 85% opacity */
+                padding: "15px 30px",
+                position: "fixed",
+                top: "0",
+                width: "100%",
+                zIndex: "1000",
+            }} />
+        </header>
     </>
 }
 

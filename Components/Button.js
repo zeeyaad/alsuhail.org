@@ -26,12 +26,12 @@ function Button(props) {
             style={{
                 textDecoration: isMouseOver ? "underline" : "none",
                 textDecorationColor: isMouseOver ? "#17a2b8" : "initial",
-                textUnderlineOffset: isMouseOver ? "10px" : "0px", // this gives "padding" feel
-                textDecorationThickness: "1rem",
+                textUnderlineOffset: isMouseOver ? "5px" : "0px", 
+                textDecorationThickness: "5px",
             }}
         >
-            {/* {props.Name} */}
-            Zed
+            {props.Name}
+            
         </button>
     );
 }

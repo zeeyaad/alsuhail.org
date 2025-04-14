@@ -1,9 +1,15 @@
 import './App.css';
-import Button from './Components/Button';
+
+import Main from './Pages/Main';
+
+import Form from './Components/Form';
+
 function App() {
   return (
     <>
-      <Button/>
+      <Main />
+      
+      <Form/>
     </>
   );
 }
