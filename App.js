@@ -1,15 +1,17 @@
 import './App.css';
+import Login from './Pages/Login';
 
-import Main from './Pages/Main';
+// import Main from './Pages/Main';
 
-import Form from './Components/Form';
+
 
 function App() {
   return (
     <>
-      <Main />
+      {/* <Main /> */}
       
-      <Form/>
+      <Login/>
+      
     </>
   );
 }
