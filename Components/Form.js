@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import InputField from "./InputField";
 
-function Form() {
+function Form(props) {
+    
     const [isMouseOver, setMouseOver] = useState(false);
     return (
         <>
@@ -9,6 +10,22 @@ function Form() {
                 <div class="layer-wrapper">
                     <form class="form-container">
                         <input type="hidden" name="_token" value="1734020bd20093e5b7d014fbb3b2b7f8ebbf6b6cd466465ce50c515eb7bf84cbbf507a82e1d4ef6a8e78e7c0473bd52f492c19d6184feb6bc682cd536f872dcf" />
+                        { 
+                            props.Register ? <><InputField
+                                Type="text"
+                                Name="FName"
+                                InputId="frist-name"
+                                Label="First Name"
+                                InputPlaceholder=""
+                            />
+                                <InputField
+                            Type="text"
+                            Name="LName"
+                            InputId="last-name"
+                            Label="Last Name"
+                            InputPlaceholder=""
+                        /></> :null
+                        }
                         <InputField
                             Type="email"
                             Name="email"
@@ -16,7 +33,16 @@ function Form() {
                             Label="Email Address"
                             InputPlaceholder="example@gmail.com"
                         />
-
+                        {
+                            props.Register ? <InputField
+                                Type="text"
+                                Name="mobile"
+                                InputId="register-mobile"
+                                Label="Mobile Number"
+                                InputPlaceholder=""
+                            />
+                            : null
+                        }
                         <div className="password-wrapper" style={{ position: "relative" }}>
                             <InputField
                                 Type="password"
@@ -26,20 +52,33 @@ function Form() {
                                 Label="Password"
                                 InputPlaceholder="******"
                             />
-                            <a
-                                href="###"
-                                className="forgot-pass"
-                                style={{
-                                    position: "absolute",
-                                    bottom: "-1.5rem",
-                                    right: "10px",
-                                    fontSize: "12px",
-                                    color: "#32C1CE",
-                                    textDecoration: "none",
-                                }}
-                            >
-                                Forgot Password?
-                            </a>
+                            { 
+                                props.Register?<InputField
+                                Type="password"
+                                Name="password"
+                                InputId="login-password"
+                                LabelFor="login-password"
+                                Label="Confirm Password"
+                                InputPlaceholder=""
+                            />:null
+                            }
+                            {
+                                props.Register ? null : <a
+                                    href="###"
+                                    className="forgot-pass"
+                                    style={{
+                                        position: "absolute",
+                                        bottom: "-1.5rem",
+                                        right: "10px",
+                                        fontSize: "12px",
+                                        color: "#32C1CE",
+                                        textDecoration: "none",
+                                    }}
+                                >
+                                    Forgot Password?
+                                </a>
+                            }
+
                         </div>
 
 
@@ -62,12 +101,12 @@ function Form() {
                                 id="login-submit"
                                 className="btn btn-primary"
                             >
-                                Login
+                                {props.Register ? "Create Account" : "Login"}
                             </button>
                         </div>
                         <div class="login-link text-center">
-                            <span class="paragraph-small">Don't have an account?</span>
-                            <a href="###">Register as New User</a>
+                            <span class="paragraph-small">{props.Register ? "Already  have an account?" : "Don't have an account?"}</span>
+                            <a href="###">{props.Register ? "Login" : "Register as New User"}</a>
                         </div>
                     </form>
                 </div>

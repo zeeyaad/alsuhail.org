@@ -37,7 +37,7 @@ function Navbar(props) {
     ];
 
     return (
-        <nav className="navbar" style={{ background: "transparent", paddingBottom: "0px" }}>
+        <nav className="navbar" style={{ background: "transparent", paddingBottom: "15px", marginBottom: "15px" }}>
             <div className="container-fluid d-flex justify-content-between align-items-center">
 
                 {/* Left: Login & Register */}
@@ -72,7 +72,7 @@ function Navbar(props) {
                 {/* Right: Social Icons */}
                 <ul className="navbar-nav d-flex flex-row gap-2 mb-0">
                     {LIData.map((item, index) => (
-                        <li className="nav-item" key={index}>
+                        <li className="nav-item" key={index} style={{paddingLeft:"2px"}}>
                             <a href={item.Link}>
                                 <Icon D={item.D} IconName="" ViewBox={item.ViewBox} />
                             </a>

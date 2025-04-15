@@ -17,7 +17,7 @@ function NavbarFooter(props) {
     ];
 
     return (
-        <div className="container-fluid d-flex justify-content-between align-items-center">
+        <div className="container-fluid d-flex justify-content-between align-items-center" style={{ backgroundColor:"rgb(65 82 83 / 50%)"}}>
             <ul className="navbar-nav d-flex flex-row gap-2 mb-0">
                 {LIData.map((item, index) => (
                     <li

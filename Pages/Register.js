@@ -26,7 +26,7 @@ function useInView(options) {
     return [ref, isIntersecting];
 }
 
-function Login() {
+function Register() {
     const Data = [
         { Day: "SUN", Time: "10 AM - 5 PM" },
         { Day: "MON", Time: "10 AM - 5 PM" },
@@ -94,8 +94,8 @@ function Login() {
 
     return (
         <>
-            <Header />
-            <Form />
+            <Header Register />
+            <Form Register />
 
             {/* Time Table */}
             <div
@@ -175,4 +175,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default Register;
