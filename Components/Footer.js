@@ -1,78 +1,225 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { RiWhatsappFill } from 'react-icons/ri';
-import { IoIosCall } from "react-icons/io";
 
 function Footer() {
-    const Logo = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
-        {/* <!-- Main Company Name - Centered --> */}
-        <text x="400" y="160"
-            font-family="Arial"
-            font-size="135"
-            font-weight="900"
-            fill="#b7410e"
-            text-anchor="middle"
-            direction="rtl">شركة السهيل</text>
+    const Data = [
+        {
+            Link: "https://www.facebook.com",
+            Icon: "fab fa-facebook"
+        },
+        {
+            Link: "https://www.twitter.com",
+            Icon: "fab fa-twitter"
+        },
+        {
+            Link: "https://www.google.com",
+            Icon: "fab fa-google"
+        },
+        {
+            Link: "https://www.instagram.com",
+            Icon: "fab fa-instagram"
+        },
+        {
+            Link: "https://www.youtube.com",
+            Icon: "fab fa-youtube"
+        },
+        {
+            Link: "https://www.linkedin.com",
+            Icon: "fab fa-linkedin"
+        },
+        {
+            Link: "https://www.flicker.com",
+            Icon: "fab fa-flickr"
+        }
+    ];
+    const Data0 = [
+        {
+            Icon: "far fa-map",
+            Content: "Address Line 11, Address Line 2, City, Country, 0123456"
+        },
+        {
+            Icon: "fas fa-mobile-alt",
+            Content: "1234567890"
+        },
+        {
+            Icon: "far fa-envelope-open",
+            Content: "support@pepdev.com"
+        },
+    ];
+    const Data1 = [
+        {
+            Link: "##contact",
+            Content: "Contact Us"
+        },
+        {
+            Link: "##about",
+            Content: "About Us"
+        },
+        {
+            Link: "##doctors",
+            Content: "Doctor"
+        },
+        {
+            Link: "##Home",
+            Content: "Home"
+        },
+        {
+            Link: "##Services",
+            Content: "Services"
+        },
+    ];
+    return (
+        <>
+            <footer id="footer">
+                <div className="layer-stretch">
+                    <div className="row layer-wrapper">
+                        <div className="col-md-4 footer-block">
+                            <div className="footer-ttl">
+                                <p>Basic Info</p>
+                            </div>
+                            <div className="footer-container footer-a">
+                                <div className="tbl">
+                                    {Data0.map(({ Icon, Content }, Index) =>
+                                        <div className="tbl-row" key={Index}>
+                                            <div className="tbl-cell"><i className={Icon}></i></div>
+                                            <div className="tbl-cell">
+                                                <p className="paragraph-medium paragraph-white">{Content}</p>
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-md-4 footer-block">
+                            <div className="footer-ttl">
+                                <p>Quick Links</p>
+                            </div>
+                            <div className="footer-container footer-b">
+                                <div className="tbl">
+                                    <div className="tbl-row">
+                                        <ul className="tbl-cell">
+                                            {Data1.map(({ Link, Content }, Index) =>
+                                                <li key={Index}>
+                                                    <a href={Link}>
+                                                        {Content}
+                                                    </a>
+                                                </li>
+                                            )}
+                                        </ul>
+                                        <ul className="tbl-cell">
+                                            <li><a href="##login">Login</a></li>
+                                            <li><a href="##register">Register</a></li>
+                                            <li><a href="##forgot">Forgot Password</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-        {/* <!-- Services Text - Centered --> */}
-        <text x="400" y="260"
-            font-family="Arial"
-            font-size="70"
-            font-weight="900"
-            fill="#000000"
-            text-anchor="middle"
-            direction="rtl">للمقاولات و اعمال الصيانة</text>
-    </svg>
-
-    return (<>
-        <div className="container" dir="rtl">
-            <footer className="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top text-end">
-                <div className="col mb-3">
-                    <Link to="/" className="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
-                        {Logo}
-                    </Link>
-                    <p className="text-body-secondary">© {new Date().getFullYear()}</p>
+                        {/* Newsletter Section */}
+                        <div className="col-md-4 footer-block">
+                            <div className="footer-ttl">
+                                <p>Newsletter</p>
+                            </div>
+                            <div className="footer-container footer-c">
+                                <div className="footer-subscribe">
+                                    <form>
+                                        <div style={{ position: 'relative', marginBottom: '15px' }}>
+                                            <input
+                                                type="email"
+                                                name="email"
+                                                id="subscribe-email"
+                                                required
+                                                style={{
+                                                    width: '100%',
+                                                    padding: '20px 10px 10px 10px',
+                                                    border: 'none',
+                                                    borderRadius: '8px',
+                                                    backgroundColor: 'white',
+                                                    fontSize: '16px',
+                                                    color: '#000',
+                                                    outline: 'none',
+                                                }}
+                                            />
+                                            <label
+                                                htmlFor="subscribe-email"
+                                                style={{
+                                                    position: 'absolute',
+                                                    top: '10px',
+                                                    left: '10px',
+                                                    color: '#00cfe8',
+                                                    fontSize: '14px',
+                                                    pointerEvents: 'none',
+                                                }}
+                                            >
+                                                Email Address
+                                            </label>
+                                        </div>
+                                        <div className="footer-subscribe-button" style={{ textAlign: 'left' }}>
+                                            <button
+                                                type="submit"
+                                                style={{
+                                                    backgroundColor: '#3ed3d3',
+                                                    border: 'none',
+                                                    padding: '10px 30px',
+                                                    borderRadius: '8px',
+                                                    color: 'white',
+                                                    fontWeight: 'bold',
+                                                    cursor: 'pointer',
+                                                    transition: 'background-color 0.3s',
+                                                }}
+                                                onMouseOver={e => (e.target.style.backgroundColor = '#2bb3b3')}
+                                                onMouseOut={e => (e.target.style.backgroundColor = '#3ed3d3')}
+                                            >
+                                                Submit
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <ul
+                                    style={{
+                                        display: 'flex',
+                                        gap: '20px',
+                                        padding: '0',
+                                        marginTop: '20px',
+                                        listStyle: 'none',
+                                        justifyContent: 'center',
+                                    }}
+                                >
+                                    {Data.map(({ Link, Icon }, index) => (
+                                        <li key={index}>
+                                            <a
+                                                href={Link}
+                                                className={Icon}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                style={{
+                                                    fontSize: '20px',
+                                                    color: 'white',
+                                                    transition: 'color 0.3s',
+                                                    textDecoration: 'none',
+                                                }}
+                                                onMouseOver={e => (e.target.style.color = '#3ed3d3')}
+                                                onMouseOut={e => (e.target.style.color = 'white')}
+                                            > </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div className="col mb-3">
-                </div>
-
-                <div className="col mb-3">
-                    <ul className="nav flex-column">
-                        <li className="nav-item mb-2">
-                            <a href="https://wa.me/966506790641" className="nav-link p-0 text-body-secondary">
-                                <RiWhatsappFill color="#25D366" size={40} />
-                                <span className="text-green-600 font-bold">0506790641</span>
-                            </a>
-                        </li>
-                        <li className="nav-item mb-2">
-                            <a href="https://wa.me/201099918114" className="nav-link p-0 text-body-secondary">
-                                <RiWhatsappFill color="#25D366" size={40} />
-                                <span className="text-green-600 font-bold">01099918114</span>
-                            </a>
-
-                        </li>
-                        <li className="nav-item mb-2">
-                            <a href="tel:+966506790641" className="nav-link p-0 text-body-secondary">
-                                <IoIosCall color="black" size={24} />
-                                <span className="text-green-600 font-bold">0506790641</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div className="col mb-3">
-                    <h5>صفحات سريعة</h5>
-                    <ul className="nav flex-column">
-                        <li className="nav-item mb-2"><Link to="/" className="nav-link p-0 text-body-secondary">الرئيسية</Link></li>
-                        <li className="nav-item mb-2"><Link to="/Mentinance" className="nav-link p-0 text-body-secondary">خدمات الصيانة</Link></li>
-                        <li className="nav-item mb-2"><Link to="/Cleaning" className="nav-link p-0 text-body-secondary">خدمات التنظيف</Link></li>
-                        <li className="nav-item mb-2"><Link to="/Contractors" className="nav-link p-0 text-body-secondary">خدمات المقاولات</Link></li>
-                    </ul>
+                {/* Copyright */}
+                <div id="copyright">
+                    <div className="layer-stretch">
+                        <div className="paragraph-medium paragraph-white">
+                            {new Date().getFullYear()} © Pepdev, ALL RIGHTS RESERVED
+                        </div>
+                    </div>
                 </div>
             </footer>
-        </div>
-    </>);
+        </>
+    );
 }
 
 export default Footer;
