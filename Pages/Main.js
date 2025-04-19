@@ -213,6 +213,7 @@ function Main() {
 
             {/* End Body */}
             <br />
+            <hr/>
             {/* Start Feature */}
             <div id="hm-feature" className="layer-stretch animated-wrapper" style={{ opacity: 1 }}>
                 <div className="layer-wrapper layer-bottom-0">
