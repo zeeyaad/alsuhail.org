@@ -1,17 +1,17 @@
 import './App.css';
 
-import Login from './Pages/Login';
+// import Login from './Pages/Login';
 // import Register from './Pages/Register';
-// import Main from './Pages/Main';
+import Main from './Pages/Main';
 
 
 
 function App() {
   return (
     <>
-      {/* <Main /> */}
+      <Main />
 
-      <Login />
+      {/* <Login /> */}
       {/* <Register  /> */}
 
     </>

@@ -3,6 +3,7 @@ import Form from "../Components/Form";
 import Header from "../Components/header";
 import Footer from "../Components/Footer";
 import TimeTable from "../Components/TimeTable";
+import Emergency from "../Components/Emergency";
 
 // Hook to detect if element is in view
 function useInView(options) {
@@ -66,6 +67,7 @@ function Login() {
                     </div>
                 </div>
             </div>
+            <Emergency />
             {/* Emergency */}
 
             {/* Footer */}
