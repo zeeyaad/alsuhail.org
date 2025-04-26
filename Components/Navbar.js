@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 // import Button from "./Button";
 import Icon from "./Icon";
 
@@ -42,24 +43,24 @@ function Navbar(props) {
 
                 {/* Left: Login & Register */}
                 <div className="d-flex gap-3">
-                    <a href="##" style={{ textDecoration: "none", color: "inherit" }}>
+                    <Link to="/Login" style={{ textDecoration: "none", color: "inherit" }}>
                         <Icon
                             D="M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z"
                             IconName="Login"
                             ViewBox="0 0 512 512"
                         />
-                    </a>
-                    <a href="##" style={{ textDecoration: "none", color: "inherit" }}>
+                    </Link>
+                    <Link to="/Register" style={{ textDecoration: "none", color: "inherit" }}>
                         <Icon
                             D="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304l91.4 0C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7L29.7 512C13.3 512 0 498.7 0 482.3zM504 312l0-64-64 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l64 0 0-64c0-13.3 10.7-24 24-24s24 10.7 24 24l0 64 64 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-64 0 0 64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"
                             IconName="Register"
                             ViewBox="0 0 640 640"
                         />
-                    </a>
+                    </Link>
                 </div>
 
                 {/* Center: Logo */}
-                <a className="navbar-brand" href="/" style={{ width: "7rem", paddingBottom: "0px" }}>
+                <Link className="navbar-brand" to="/" style={{ width: "7rem", paddingBottom: "0px" }}>
                     <img
                         src="./Assets/Images/Logo.png"
                         className="d-block img-fluid"
@@ -67,15 +68,15 @@ function Navbar(props) {
                         width="700"
                         height="500"
                     />
-                </a>
+                </Link>
 
                 {/* Right: Social Icons */}
                 <ul className="navbar-nav d-flex flex-row gap-2 mb-0">
                     {LIData.map((item, index) => (
-                        <li className="nav-item" key={index} style={{paddingLeft:"2px"}}>
-                            <a href={item.Link}>
+                        <li className="nav-item" key={index} style={{ paddingLeft: "2px" }}>
+                            <Link to={item.Link}>
                                 <Icon D={item.D} IconName="" ViewBox={item.ViewBox} />
-                            </a>
+                            </Link>
                         </li>
                     ))}
                 </ul>

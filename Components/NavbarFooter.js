@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 
 function NavbarFooter(props) {
     const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -7,17 +8,15 @@ function NavbarFooter(props) {
     const [isDropdownHovered, setDropdownHovered] = useState(false);
 
     const LIData = [
-        { Name: "Home", Link: "##Home" },
-        { Name: "About Us", Link: "##AboutUS" },
-        { Name: "Services", Link: "##Services" },
-        { Name: "Doctors", Link: "##Doctors" },
-        { Name: "Contact Us", Link: "##ContactUS" },
-        { Name: "Gallery", Link: "##Gallery" },
-        { Name: "Admin Panel", Link: "##AdminPanel" },
+        { Name: "Home", Link: "/" },
+        { Name: "About Us", Link: "/AboutUS" },
+        { Name: "Services", Link: "/Services" },
+        { Name: "Doctors", Link: "/Doctors" },
+        { Name: "Contact Us", Link: "/ContactUS" },
     ];
 
     return (
-        <div className="container-fluid d-flex justify-content-between align-items-center" style={{ backgroundColor:"rgb(65 82 83 / 50%)"}}>
+        <div className="container-fluid d-flex justify-content-between align-items-center" style={{ backgroundColor: "rgb(65 82 83 / 50%)" }}>
             <ul className="navbar-nav d-flex flex-row gap-2 mb-0">
                 {LIData.map((item, index) => (
                     <li
@@ -26,8 +25,8 @@ function NavbarFooter(props) {
                         onMouseOver={() => setHoveredIndex(index)}
                         onMouseOut={() => setHoveredIndex(null)}
                     >
-                        <a
-                            href={item.Link}
+                        <Link
+                            to={item.Link}
                             style={{
                                 color: "white",
                                 textDecoration: hoveredIndex === index ? "underline" : "none",
@@ -37,7 +36,7 @@ function NavbarFooter(props) {
                             }}
                         >
                             {item.Name}
-                        </a>
+                        </Link>
                     </li>
                 ))}
             </ul>
@@ -71,16 +70,16 @@ function NavbarFooter(props) {
                         zIndex: 1000
                     }}
                 >
-                    <li><a className="dropdown-item" href="##">Login</a></li>
-                    <li><a className="dropdown-item" href="##">Register</a></li>
-                    <li><a className="dropdown-item" href="##">Forget Password</a></li>
+                    <li><Link className="dropdown-item" to="/Login">Login</Link></li>
+                    <li><Link className="dropdown-item" to="/Register">Register</Link></li>
+                    <li><Link className="dropdown-item" to="/Forget">Forget Password</Link></li>
                 </ul>
             </div>
 
             {/* Appointment button */}
             <div className="col col-md-auto d-block d-sm-block d-md-block d-lg-block d-xl-block">
-                <a
-                    href="##"
+                <Link
+                    href="/Appointment"
                     className="btn btn-primary btn-pill pt-2 pb-2"
                     onMouseOver={() => setMouseOver(true)}
                     onMouseOut={() => setMouseOver(false)}
@@ -94,7 +93,7 @@ function NavbarFooter(props) {
                         <path fill="White" d="M96 32l0 32L48 64C21.5 64 0 85.5 0 112l0 48 448 0 0-48c0-26.5-21.5-48-48-48l-48 0 0-32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 32L160 64l0-32c0-17.7-14.3-32-32-32S96 14.3 96 32zM448 192L0 192 0 464c0 26.5 21.5 48 48 48l352 0c26.5 0 48-21.5 48-48l0-272zM224 248c13.3 0 24 10.7 24 24l0 56 56 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-56 0 0 56c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-56-56 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l56 0 0-56c0-13.3 10.7-24 24-24z" />
                     </svg>
                     Make An Appointment
-                </a>
+                </Link>
             </div>
         </div>
     );
