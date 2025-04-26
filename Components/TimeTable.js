@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 const TimeTable = ({ data, isVisible, refProp }) => {
     const wrapperStyle = {
@@ -96,9 +97,9 @@ const TimeTable = ({ data, isVisible, refProp }) => {
                                     <span>{Time}</span>
                                 </p>
                                 <p>
-                                    <a href="###login" style={buttonStyle}>
+                                    <Link to="/Login" style={buttonStyle}>
                                         Make An Appointment
-                                    </a>
+                                    </Link>
                                 </p>
                             </div>
                         ))}

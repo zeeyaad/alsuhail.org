@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 function Footer() {
     const Data = [
@@ -47,23 +48,23 @@ function Footer() {
     ];
     const Data1 = [
         {
-            Link: "##contact",
+            LLink: "/ContactUS",
             Content: "Contact Us"
         },
         {
-            Link: "##about",
+            LLink: "/AboutUs",
             Content: "About Us"
         },
         {
-            Link: "##doctors",
+            LLink: "/Doctors",
             Content: "Doctor"
         },
         {
-            Link: "##Home",
+            LLink: "/",
             Content: "Home"
         },
         {
-            Link: "##Services",
+            LLink: "/Services",
             Content: "Services"
         },
     ];
@@ -97,18 +98,18 @@ function Footer() {
                                 <div className="tbl">
                                     <div className="tbl-row">
                                         <ul className="tbl-cell">
-                                            {Data1.map(({ Link, Content }, Index) =>
+                                            {Data1.map(({ LLink, Content }, Index) =>
                                                 <li key={Index}>
-                                                    <a href={Link}>
+                                                    <Link to={LLink}>
                                                         {Content}
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                             )}
                                         </ul>
                                         <ul className="tbl-cell">
-                                            <li><a href="##login">Login</a></li>
-                                            <li><a href="##register">Register</a></li>
-                                            <li><a href="##forgot">Forgot Password</a></li>
+                                            <li><Link to="/Login">Login</Link></li>
+                                            <li><Link to="/Register">Register</Link></li>
+                                            <li><Link to="/Forget Password">Forgot Password</Link></li>
                                         </ul>
                                     </div>
                                 </div>

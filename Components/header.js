@@ -1,9 +1,32 @@
 import React from "react";
 import Navbar from "./Navbar";
 import NavbarFooter from "./NavbarFooter";
+import { useLocation } from "react-router-dom";
 
 function Header(props) {
-    const pageTitle = props.home ? "Home" : props.Register ? "Register" : "Login";
+    const location = useLocation();
+    // If a custom title is provided via props, use it. Otherwise, generate from route.
+    let pageTitle = props.pageTitle;
+    if (!pageTitle) {
+        if (props.home) {
+            pageTitle = "Home";
+        } else if (props.Register) {
+            pageTitle = "Register";
+        } else if (props.Login) {
+            pageTitle = "Login";
+        } else {
+            // Generate from route path
+            const path = location.pathname.replace(/^\//, "");
+            if (!path) {
+                pageTitle = "Home";
+            } else {
+                // Capitalize and replace dashes with spaces
+                pageTitle = path.split("/").map(
+                    seg => seg.charAt(0).toUpperCase() + seg.slice(1).replace(/-/g, " ")
+                ).join(" / ");
+            }
+        }
+    }
 
     return (
         <>

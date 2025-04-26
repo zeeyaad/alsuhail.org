@@ -79,7 +79,7 @@ function NavbarFooter(props) {
             {/* Appointment button */}
             <div className="col col-md-auto d-block d-sm-block d-md-block d-lg-block d-xl-block">
                 <Link
-                    href="/Appointment"
+                    to="/Login"
                     className="btn btn-primary btn-pill pt-2 pb-2"
                     onMouseOver={() => setMouseOver(true)}
                     onMouseOut={() => setMouseOver(false)}

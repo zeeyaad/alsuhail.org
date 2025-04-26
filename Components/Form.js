@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import InputField from "./InputField";
 
 function Form(props) {
-    
+
     const [isMouseOver, setMouseOver] = useState(false);
     return (
         <>
@@ -10,7 +11,7 @@ function Form(props) {
                 <div class="layer-wrapper">
                     <form class="form-container">
                         <input type="hidden" name="_token" value="1734020bd20093e5b7d014fbb3b2b7f8ebbf6b6cd466465ce50c515eb7bf84cbbf507a82e1d4ef6a8e78e7c0473bd52f492c19d6184feb6bc682cd536f872dcf" />
-                        { 
+                        {
                             props.Register ? <><InputField
                                 Type="text"
                                 Name="FName"
@@ -19,12 +20,12 @@ function Form(props) {
                                 InputPlaceholder=""
                             />
                                 <InputField
-                            Type="text"
-                            Name="LName"
-                            InputId="last-name"
-                            Label="Last Name"
-                            InputPlaceholder=""
-                        /></> :null
+                                    Type="text"
+                                    Name="LName"
+                                    InputId="last-name"
+                                    Label="Last Name"
+                                    InputPlaceholder=""
+                                /></> : null
                         }
                         <InputField
                             Type="email"
@@ -41,7 +42,7 @@ function Form(props) {
                                 Label="Mobile Number"
                                 InputPlaceholder=""
                             />
-                            : null
+                                : null
                         }
                         <div className="password-wrapper" style={{ position: "relative" }}>
                             <InputField
@@ -52,15 +53,15 @@ function Form(props) {
                                 Label="Password"
                                 InputPlaceholder="******"
                             />
-                            { 
-                                props.Register?<InputField
-                                Type="password"
-                                Name="password"
-                                InputId="login-password"
-                                LabelFor="login-password"
-                                Label="Confirm Password"
-                                InputPlaceholder=""
-                            />:null
+                            {
+                                props.Register ? <InputField
+                                    Type="password"
+                                    Name="password"
+                                    InputId="login-password"
+                                    LabelFor="login-password"
+                                    Label="Confirm Password"
+                                    InputPlaceholder=""
+                                /> : null
                             }
                             {
                                 props.Register ? null : <a
@@ -106,7 +107,7 @@ function Form(props) {
                         </div>
                         <div class="login-link text-center">
                             <span class="paragraph-small">{props.Register ? "Already  have an account?" : "Don't have an account?"}</span>
-                            <a href="###">{props.Register ? "Login" : "Register as New User"}</a>
+                            <Link to={props.Register ? "/Login" : "/Register"}>{props.Register ? "Login" : "Register as New User"}</Link>
                         </div>
                     </form>
                 </div>

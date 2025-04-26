@@ -74,9 +74,9 @@ function Navbar(props) {
                 <ul className="navbar-nav d-flex flex-row gap-2 mb-0">
                     {LIData.map((item, index) => (
                         <li className="nav-item" key={index} style={{ paddingLeft: "2px" }}>
-                            <Link to={item.Link}>
+                            <a href={item.Link} target="_blank" rel="noopener noreferrer">
                                 <Icon D={item.D} IconName="" ViewBox={item.ViewBox} />
-                            </Link>
+                            </a>
                         </li>
                     ))}
                 </ul>
