@@ -1,28 +1,31 @@
 import './App.css';
-// import Documents from './Components/Documents';
-import MedicalHistory from './Components/MedicalHistory';
-// import Sidebar from './Components/sidebar';
-// import Sidebar from './Components/sidebar';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-// import Login from './Pages/Login';
-// import Register from './Pages/Register';
-// import Main from './Pages/Main';
-// import Patient from './Pages/Patient';
-
-
+import Main from "./Pages/Main"
 
 function App() {
   return (
     <>
-      {/* <Main /> */}
+      <Router>
+        
+        <Switch>
+
+          <Route>
+            <Main />
+          </Route>
+
+        </Switch>
+      </Router>
+
 
       {/* <Login /> */}
       {/* <Register  /> */}
       {/* <Sidebar/> */}
       {/* <Patient /> */}
-      <MedicalHistory/>
-      {/* <Documents/> */}
-      
+      {/* <MedicalHistory/> */}
+      {/* <Documents /> */}
+
+      {/* <Appointments/> */}
 
     </>
   );
