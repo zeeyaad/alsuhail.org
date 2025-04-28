@@ -72,7 +72,7 @@ function Patient() {
 
 
 
-    
+
     return (
         <>
             <Header2 />

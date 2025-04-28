@@ -1,5 +1,5 @@
 import './App.css';
-import AppointmentTable from './Components/AppointmentTable';
+import Appointments from './Pages/Appointments';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Main from "./Pages/Main"
@@ -8,7 +8,11 @@ import Register from "./Pages/Register"
 import ContactUs from "./Pages/ContactUs"
 import AboutUs from "./Pages/AboutUs"
 import Services from "./Pages/Services"
-
+import Doctors from "./Pages/Doctors"
+import ForgetPassword from "./Pages/ForgetPassword"
+import Paitent from "./Pages/Patient"
+import AppointmentForm from "./Pages/AppointmentForm"
+import MyRecords from "./Pages/MyRecords"
 
 function App() {
   return (
@@ -29,6 +33,10 @@ function App() {
             <Register />
           </Route>
           
+          <Route exact path="/Forget Password">
+            <ForgetPassword />
+          </Route>
+          
           <Route exact path="/ContactUs">
             <ContactUs />
           </Route>
@@ -41,8 +49,29 @@ function App() {
             <Services />
           </Route>
 
-          <Route exact path="/A">
-            <AppointmentTable />
+          <Route exact path="/Doctors">
+            <Doctors />
+          </Route>
+
+          <Route exact path="/Paitent Dashboard">
+            <Paitent />
+          </Route>
+
+          <Route exact path="/Appointments">
+            <Appointments/>
+          </Route>
+
+          <Route exact path="/Messages">
+            <Appointments/>
+          </Route>
+
+          <Route exact path="/Schedule Appointment">
+            <AppointmentForm />
+          </Route>
+
+          
+          <Route exact path="/My Records">
+            <MyRecords />
           </Route>
 
           

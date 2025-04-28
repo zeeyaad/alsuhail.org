@@ -72,7 +72,7 @@ function NavbarFooter(props) {
                 >
                     <li><Link className="dropdown-item" to="/Login">Login</Link></li>
                     <li><Link className="dropdown-item" to="/Register">Register</Link></li>
-                    <li><Link className="dropdown-item" to="/Forget">Forget Password</Link></li>
+                    <li><Link className="dropdown-item" to="/Forget Password">Forget Password</Link></li>
                 </ul>
             </div>
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../Components/header';
+import Footer from '../Components/Footer';
 
 const doctorsData = [
     {
@@ -31,6 +32,39 @@ const doctorsData = [
         awards: 20,
         experience: 16,
         socials: ['facebook', 'twitter', 'google', 'instagram'],
+    },
+];
+
+const departmentData = [
+    {
+        icon: '🚺',
+        title: 'Gynaecology',
+        desc: 'Obstetrics and Gynaecology (often abbreviated to OB/GYN, OBG, OG&G or Obs & Gynae) are the two surgical specialties dealing with the female reproductive organs, and as such are often combined to form a single medical specialty and postgraduate training program.',
+    },
+    {
+        icon: '🌡️',
+        title: 'Orthology',
+        desc: 'Orthology is the study of the right use of words in language. The word comes from Greek ortho- ("correct") and -logy ("science of"). This science is a place where psychology, philosophy, linguistics, and many other fields of learning come together.',
+    },
+    {
+        icon: '🩺',
+        title: 'Dermatologist',
+        desc: 'Dermatology is the branch of medicine dealing with the skin, nails, hair and its diseases. It is a specialty with both medical and surgical aspects. A dermatologist treats diseases, in the widest sense, and some domestic problems of the skin, scalp, hair, and nails.',
+    },
+    {
+        icon: '🛏️',
+        title: 'Anaesthesia',
+        desc: 'As anaesthesiologists we are responsible for the safety and well-being of patients before, during and after surgery. This includes placing patients in a state of controlled unconsciousness called general anaesthesia, the provision of aesthetics where only a portion of the body is made numb, or administering sedation when indicated for the relief of pain or anxiety.',
+    },
+    {
+        icon: '👁️',
+        title: 'Ayurvedic',
+        desc: 'Another milestone to achieve Holistic Health is the addendum of Ayurvedic Clinic at our clinic. The first school of medicine dating back to the origin of life itself, makes a come back with all its glory in the 21st century. With the west aping the east on eternal truths and knowledge of life, we need to refresh our old science of sages according to modern ages.',
+    },
+    {
+        icon: '🍸',
+        title: 'Pathology',
+        desc: 'The modern practice of pathology is divided into a number of sub disciplines within the discrete but deeply interconnected aims of biological research and medical practice. Biomedical research into disease incorporates the work of vast variety of life science specialists, whereas, in most parts of the world, to be licensed to practice pathology as medical specialty, one has to complete medical school and secure a license to practice medicine.',
     },
 ];
 
@@ -124,6 +158,66 @@ const styles = {
         cursor: 'pointer',
         transition: 'color 0.2s',
     },
+    departmentSection: {
+        background: '#19b6c9',
+        padding: '3rem 0 2.5rem 0',
+        color: '#fff',
+        marginTop: '2.5rem',
+    },
+    departmentHeading: {
+        textAlign: 'center',
+        fontSize: '2.2rem',
+        fontWeight: 600,
+        marginBottom: '2.5rem',
+        background: '#12707a',
+        display: 'inline-block',
+        padding: '0.5rem 2.5rem',
+        borderRadius: '5px',
+        borderBottom: '3px solid #fff',
+        boxShadow: '0 2px 0 #12707a',
+    },
+    departmentGrid: {
+        display: 'grid',
+        gridTemplateColumns: 'repeat(3, 1fr)',
+        gap: '2rem',
+        maxWidth: '1200px',
+        margin: '0 auto',
+    },
+    departmentCard: {
+        background: 'rgba(255,255,255,0.08)',
+        border: '1px solid #b2e6ee',
+        borderRadius: '6px',
+        padding: '2rem 1rem 1.5rem 1rem',
+        textAlign: 'left',
+        color: '#fff',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        minHeight: '220px',
+    },
+    departmentIcon: {
+        fontSize: '2.2rem',
+        marginBottom: '1.2rem',
+        color: '#fff',
+        border: '1.5px solid #b2e6ee',
+        borderRadius: '8px',
+        width: '48px',
+        height: '48px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: 'rgba(255,255,255,0.12)',
+    },
+    departmentTitle: {
+        fontWeight: 600,
+        fontSize: '1.1rem',
+        margin: '0.7rem 0 0.5rem 0',
+    },
+    departmentDesc: {
+        color: '#e0f7fa',
+        fontSize: '1rem',
+        lineHeight: 1.5,
+    },
 };
 
 const Doctors = () => {
@@ -160,6 +254,22 @@ const Doctors = () => {
                     </div>
                 ))}
             </div>
+            {/* Our Department Section */}
+            <div style={styles.departmentSection}>
+                <div style={{ textAlign: 'center' }}>
+                    <span style={styles.departmentHeading}>Our Department</span>
+                </div>
+                <div style={styles.departmentGrid}>
+                    {departmentData.map((item, idx) => (
+                        <div style={styles.departmentCard} key={idx}>
+                            <div style={styles.departmentIcon}>{item.icon}</div>
+                            <div style={styles.departmentTitle}>{item.title}</div>
+                            <div style={styles.departmentDesc}>{item.desc}</div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <Footer />
         </div>
     );
 };

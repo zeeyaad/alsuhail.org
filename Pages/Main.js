@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import Header from "../Components/header";
 import TimeTable from "../Components/TimeTable";
 import Footer from "../Components/Footer";
@@ -164,8 +165,8 @@ function Main() {
 
                                 </div>
                                 <div className="hm-service-view text-center">
-                                    <a
-                                        href="##"
+                                    <Link
+                                        to="/Services"
                                         style={{
                                             display: "inline-flex",
                                             alignItems: "center",
@@ -202,7 +203,7 @@ function Main() {
                                             style={{ marginRight: "8px", fontSize: "16px", color: "inherit" }}
                                         ></i>
                                         <span style={{ color: "#00c8c8" }}>View All Services</span>
-                                    </a>
+                                    </Link>
 
                                 </div>
                             </div>

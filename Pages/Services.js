@@ -68,48 +68,7 @@ const servicesData = [
     },
 ];
 
-const whyChooseUsData = [
-    {
-        icon: '📞',
-        title: 'Emergency Departments',
-        desc: 'The emergency departments of our clinic operate 24 hours a day, although staffing levels may be varied in an ...',
-    },
-    {
-        icon: '📅',
-        title: '24 hour Service',
-        desc: '24-7 (usually spoken "twenty-four seven") is facility that is available any time and usually every day in our clinic ...',
-    },
-    {
-        icon: '☁️',
-        title: 'Advanced Technology',
-        desc: 'Medical technology, encompasses a wide range of healthcare products and is used to diagnose, monitor, or treat ...',
-    },
-    {
-        icon: '🚑',
-        title: 'Ambulance',
-        desc: 'An ambulance is a vehicle for transportation of sick or injured people to, from, or between places of treatment ...',
-    },
-    {
-        icon: '🩺',
-        title: 'Primary health care',
-        desc: 'Healthcare centres, including clinics, doctor\'s offices, urgent care centers and ambulatory surgery centers, serve as ...',
-    },
-    {
-        icon: '🏪',
-        title: 'Pharmacies and drug stores',
-        desc: 'Pharmacies and drug stores comprise establishments engaged in retailing prescribing or nonprescribing drugs ...',
-    },
-    {
-        icon: '🏢',
-        title: 'Laboratory and research',
-        desc: 'A medical laboratory or clinical laboratory is a laboratory where tests are done on biological specimens in ...',
-    },
-    {
-        icon: '👩‍⚕️',
-        title: 'Medical nursing home',
-        desc: 'Medical nursing homes, including residential treatment centers and geriatric care facilities, are health care ...',
-    },
-];
+
 
 const styles = {
     whySection: {

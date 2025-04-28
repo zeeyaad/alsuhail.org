@@ -1,53 +1,65 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Appointments() {
-    const appointments = [
-        { date: 'Apr 25, 2023', time: '9:00 AM', doctor: 'Dr. Smith', reason: 'Check-up' },
-        { date: 'Apr 25, 2023', time: '10:30 AM', doctor: 'Dr. Johnson', reason: 'Blood Test' },
-        { date: 'Apr 26, 2023', time: '2:00 PM', doctor: 'Dr. Smith', reason: 'Follow-up' },
-        { date: 'Apr 26, 2023', time: '2:00 PM', doctor: 'Dr. Smith', reason: 'Follow-up' },
-        { date: 'Apr 26, 2023', time: '2:00 PM', doctor: 'Dr. Smith', reason: 'Follow-up' },
-        { date: 'Apr 26, 2023', time: '2:00 PM', doctor: 'Dr. Smith', reason: 'Follow-up' },
-    ];
+  const [showAll, setShowAll] = useState(false);
 
-    return (
-        <div className="appointments-container">
-            <h1 className="appointments-title">Appointments</h1>
-            <p className="appointments-subtitle">View and manage your upcoming visits.</p>
+  const appointments = [
+    { date: 'Apr 25, 2023', time: '9:00 AM', doctor: 'Dr. Smith', reason: 'Check-up' },
+    { date: 'Apr 25, 2023', time: '10:30 AM', doctor: 'Dr. Johnson', reason: 'Blood Test' },
+    { date: 'Apr 26, 2023', time: '2:00 PM', doctor: 'Dr. Smith', reason: 'Follow-up' },
+    { date: 'Apr 26, 2023', time: '2:00 PM', doctor: 'Dr. Smith', reason: 'Follow-up' },
+    { date: 'Apr 26, 2023', time: '2:00 PM', doctor: 'Dr. Smith', reason: 'Follow-up' },
+    { date: 'Apr 26, 2023', time: '2:00 PM', doctor: 'Dr. Smith', reason: 'Follow-up' },
+  ];
 
-            <div className="appointments-card">
-                <h2 className="appointments-card-title">Upcoming Appointments</h2>
-                <table className="appointments-table">
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Time</th>
-                            <th>Doctor</th>
-                            <th>Reason</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {appointments.map((item, idx) => (
-                            <tr key={idx}>
-                                <td>{item.date}</td>
-                                <td>{item.time}</td>
-                                <td>{item.doctor}</td>
-                                <td>{item.reason}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-                <div className="appointments-link">
-                    <a href="##">View All Appointments →</a>
-                </div>
-            </div>
+  const displayedAppointments = showAll ? appointments : appointments.slice(0, 3);
 
-            <div className="appointments-button-wrapper">
-                <button className="appointments-button">Schedule New Appointment</button>
-            </div>
+  return (
+    <div className="appointments-container">
+      <h1 className="appointments-title">Appointments</h1>
+      <p className="appointments-subtitle">View and manage your upcoming visits.</p>
 
-            {/* Embedded CSS */}
-            <style>{`
+      <div className="appointments-card">
+        <h2 className="appointments-card-title">Upcoming Appointments</h2>
+        <table className="appointments-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Doctor</th>
+              <th>Reason</th>
+            </tr>
+          </thead>
+          <tbody>
+            {displayedAppointments.map((item, idx) => (
+              <tr key={idx}>
+                <td>{item.date}</td>
+                <td>{item.time}</td>
+                <td>{item.doctor}</td>
+                <td>{item.reason}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <div className="appointments-link">
+          <button
+            className="view-all-button"
+            onClick={() => setShowAll(!showAll)}
+          >
+            {showAll ? 'Show Less' : 'View All Appointments →'}
+          </button>
+        </div>
+      </div>
+
+      <div className="appointments-button-wrapper">
+        <Link to="/Schedule Appointment">
+        <button className="appointments-button">Schedule New Appointment</button>
+        </Link>
+      </div>
+
+      {/* Embedded CSS */}
+      <style>{`
         .appointments-container {
           padding: 24px;
           font-family: Arial, sans-serif;
@@ -103,12 +115,20 @@ export default function Appointments() {
           font-size: 13px;
         }
 
-        .appointments-link a {
+        .view-all-button {
+          background: none;
+          border: none;
           color: #2563eb;
-          text-decoration: none;
+          font-size: 13px;
+          font-weight: 500;
+          cursor: pointer;
+          padding: 4px 8px;
+          border-radius: 4px;
+          transition: all 0.2s ease;
         }
 
-        .appointments-link a:hover {
+        .view-all-button:hover {
+          background-color: #f3f4f6;
           text-decoration: underline;
         }
 
@@ -133,6 +153,6 @@ export default function Appointments() {
           background-color: #1e40af;
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 }

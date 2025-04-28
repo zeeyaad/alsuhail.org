@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";    
 
 function Header2() {
     const styles = {
@@ -58,9 +59,9 @@ function Header2() {
             </div>
 
             <div style={styles.actions}>
-                <button style={styles.notificationBtn}>
+                <Link  to = "/Messages" style={styles.notificationBtn}>
                     <i style={styles.icon} className="fa-regular fa-bell"></i>
-                </button>
+                </Link>
                 <img
                     src={"./Assets/Images/Doctor.png"}
                     alt="User Avatar"
