@@ -1,7 +1,8 @@
 import './App.css';
-import Appointments from './Pages/Appointments';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
+// Pages
 import Main from "./Pages/Main"
 import Login from "./Pages/Login"
 import Register from "./Pages/Register"
@@ -10,77 +11,101 @@ import AboutUs from "./Pages/AboutUs"
 import Services from "./Pages/Services"
 import Doctors from "./Pages/Doctors"
 import ForgetPassword from "./Pages/ForgetPassword"
-import Paitent from "./Pages/Patient"
+import Patient from "./Pages/Patient"
 import AppointmentForm from "./Pages/AppointmentForm"
 import MyRecords from "./Pages/MyRecords"
+import Appointments from './Pages/Appointments';
+import MedicalRecords from './Pages/MedicalRecords';
+
+// Protected Route Component
+const ProtectedRoute = ({ children, userType }) => {
+  const token = localStorage.getItem('token');
+  const storedUserType = localStorage.getItem('userType');
+
+  if (!token) {
+    return <Navigate to="/login" replace />;
+  }
+
+  if (userType && storedUserType !== userType) {
+    return <Navigate to="/" replace />;
+  }
+
+  return children;
+};
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userType, setUserType] = useState(null);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    const storedUserType = localStorage.getItem('userType');
+
+    if (token) {
+      setIsAuthenticated(true);
+      setUserType(storedUserType);
+    }
+  }, []);
+
   return (
-    <>
-      <Router>
+    <Router>
+      <Routes>
+        {/* Public Routes */}
+        <Route path="/" element={<Main />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Register" element={<Register />} />
+        <Route path="/Forget Password" element={<ForgetPassword />} />
+        <Route path="/ContactUs" element={<ContactUs />} />
+        <Route path="/AboutUs" element={<AboutUs />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/Doctors" element={<Doctors />} />
 
-        <Switch>
+        {/* Protected Routes */}
+        <Route
+          path="/Patient Dashboard"
+          element={
+            <ProtectedRoute userType="patient">
+              <Patient />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/appointments"
+          element={
+            <ProtectedRoute>
+              <Appointments />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/schedule-appointment"
+          element={
+            <ProtectedRoute>
+              <AppointmentForm />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/my-records"
+          element={
+            <ProtectedRoute userType="patient">
+              <MyRecords />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/medical-records"
+          element={
+            <ProtectedRoute userType="patient">
+              <MedicalRecords />
+            </ProtectedRoute>
+          }
+        />
 
-          <Route exact path="/">
-            <Main />
-          </Route>
-
-          <Route exact path="/Login">
-            <Login />
-          </Route>
-
-          <Route exact path="/Register">
-            <Register />
-          </Route>
-          
-          <Route exact path="/Forget Password">
-            <ForgetPassword />
-          </Route>
-          
-          <Route exact path="/ContactUs">
-            <ContactUs />
-          </Route>
-
-          <Route exact path="/AboutUs">
-            <AboutUs />
-          </Route>
-
-          <Route exact path="/Services">
-            <Services />
-          </Route>
-
-          <Route exact path="/Doctors">
-            <Doctors />
-          </Route>
-
-          <Route exact path="/Paitent Dashboard">
-            <Paitent />
-          </Route>
-
-          <Route exact path="/Appointments">
-            <Appointments/>
-          </Route>
-
-          <Route exact path="/Messages">
-            <Appointments/>
-          </Route>
-
-          <Route exact path="/Schedule Appointment">
-            <AppointmentForm />
-          </Route>
-
-          
-          <Route exact path="/My Records">
-            <MyRecords />
-          </Route>
-
-          
-        </Switch>
-      </Router>
-
-      
-
-    </>
+        {/* Catch all route */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </Router>
   );
 }
 
